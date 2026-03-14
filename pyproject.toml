@@ -1,0 +1,15 @@
+[project]
+
+[tool.isort]
+py_version = 312
+profile = "black"
+multi_line_output = 3
+skip_gitignore = true
+length_sort = true
+atomic = true
+skip_glob = ["venv/*"]
+
+[tool.black]
+target-version = ['py312']
+line-length = 100
+skip-string-normalization = true
