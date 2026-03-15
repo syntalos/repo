@@ -159,9 +159,7 @@ class RepoBuilder:
                                 pkg_type_fallback: str | None = pkg.get("type")
                                 files = pkg.get("files", [])
                                 if not files:
-                                    raise ValueError(
-                                        f"Package {label!r} has no 'files' entries"
-                                    )
+                                    raise ValueError(f"Package {label!r} has no 'files' entries")
                                 debs: list[Path] = []
                                 for file_entry in files:
                                     if pkg_type_fallback and "type" not in file_entry:
