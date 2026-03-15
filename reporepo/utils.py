@@ -14,7 +14,14 @@ import subprocess
 from pathlib import Path
 
 import requests
-from tqdm import tqdm
+from rich.progress import (
+    Progress,
+    BarColumn,
+    TextColumn,
+    DownloadColumn,
+    TimeRemainingColumn,
+    TransferSpeedColumn,
+)
 
 log = logging.getLogger(__name__)
 
@@ -168,20 +175,19 @@ def download_file(
     total = int(resp.headers.get("Content-Length", 0)) or None
     with (
         open(dest, "wb") as fh,
-        tqdm(
-            total=total,
-            unit="B",
-            unit_scale=True,
-            unit_divisor=1024,
-            desc=dest.name,
-            miniters=1,
-            ncols=100,
-            leave=False,
-        ) as bar,
+        Progress(
+            TextColumn("[bold]{task.description}"),
+            BarColumn(),
+            DownloadColumn(),
+            TransferSpeedColumn(),
+            TimeRemainingColumn(),
+            transient=True,
+        ) as progress,
     ):
+        task = progress.add_task(dest.name, total=total)
         for chunk in resp.iter_content(chunk_size=65_536):
             fh.write(chunk)
-            bar.update(len(chunk))
+            progress.update(task, advance=len(chunk))
 
     actual = sha256_file(dest)
     if actual.lower() != expected_sha256.lower():

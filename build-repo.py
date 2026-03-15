@@ -39,6 +39,8 @@ import logging
 import argparse
 from pathlib import Path
 
+from rich.logging import RichHandler
+
 from reporepo import RepoBuilder
 
 log = logging.getLogger(__name__)
@@ -95,8 +97,9 @@ def main(argv: list[str] | None = None) -> int:
 
     logging.basicConfig(
         level=logging.DEBUG if args.verbose else logging.INFO,
-        format="%(asctime)s  %(levelname)-8s  %(message)s",
-        datefmt="%H:%M:%S",
+        format="%(message)s",
+        datefmt="[%H:%M:%S]",
+        handlers=[RichHandler(rich_tracebacks=True, markup=False)],
     )
 
     if not args.pkginfo_dir.is_dir():
