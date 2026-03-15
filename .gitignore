@@ -1,5 +1,5 @@
-target/
-cache/
+_target/
+_cache/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

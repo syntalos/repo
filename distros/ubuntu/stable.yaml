@@ -1,0 +1,12 @@
+#
+# Packages for Ubuntu in the "stable" channel.
+#
+
+noble:
+  version: 24.04
+  packages:
+  - name: syntalos
+    version: 2.1.2
+    type: zip
+    url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
+    sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
