@@ -22,13 +22,13 @@ class RepoBuilder:
 
     def __init__(
         self,
-        distros_dir: Path,
+        pkginfo_dir: Path,
         output_dir: Path,
         config_dir: Path,
         cache_dir: Path | None = None,
         continue_on_error: bool = False,
     ) -> None:
-        self._pkgconf_dir = distros_dir
+        self._pkginfo_dir = pkginfo_dir
         self._output_dir = output_dir
         self._config_dir = config_dir
         self._cache_dir = cache_dir
@@ -46,7 +46,7 @@ class RepoBuilder:
         ``{distro: {channel: {codename: release_data}}}``.
         """
         result: dict[str, dict[str, dict]] = {}
-        for distro_dir in sorted(self._pkgconf_dir.iterdir()):
+        for distro_dir in sorted(self._pkginfo_dir.iterdir()):
             if not distro_dir.is_dir() or distro_dir.name.startswith("."):
                 continue
             distro = distro_dir.name
@@ -116,7 +116,7 @@ class RepoBuilder:
         """
         all_distros = self.load_all()
         if not all_distros:
-            log.error("No distro YAML files found under %s", self._pkgconf_dir)
+            log.error("No distro YAML files found under %s", self._pkginfo_dir)
             return False
 
         self._output_dir.mkdir(parents=True, exist_ok=True)

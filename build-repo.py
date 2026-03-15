@@ -7,12 +7,12 @@
 """
 APT Repository Builder
 
-Reads package definitions from the distros/ directory and creates
-APT repositories using reprepro in the output/ directory.
+Reads package definitions from the manifest directory and creates
+APT repositories using reprepro in the output directory.
 
 Directory layout expected
 -------------------------
-  distros/
+  manifests/
     <distro>/           e.g. ubuntu/, debian/
       <channel>.yaml    e.g. stable.yaml, snapshots.yaml
 
@@ -22,11 +22,8 @@ Directory layout expected
     signing_key_id      Text file containing the GPG key ID / fingerprint
     <distro>-config.yaml  Per-distro build settings (architectures, options, …)
 
-  output/               Created automatically
-    <distro>/           reprepro repository root
-
-YAML config format
-------------------
+YAML manifest format
+--------------------
   <codename>:
     version: <human-readable version>   # optional
     packages:
@@ -55,11 +52,11 @@ def main(argv: list[str] | None = None) -> int:
         epilog=__doc__,
     )
     parser.add_argument(
-        "--distros-dir",
+        "--pkginfo-dir",
         type=Path,
-        default=Path("distros"),
+        default=Path("manifests"),
         metavar="DIR",
-        help="Directory containing distribution YAML files (default: distros/)",
+        help="Directory containing distribution YAML files (default: manifests/)",
     )
     parser.add_argument(
         "--config-dir",
@@ -102,12 +99,12 @@ def main(argv: list[str] | None = None) -> int:
         datefmt="%H:%M:%S",
     )
 
-    if not args.distros_dir.is_dir():
-        log.error("distros directory not found: %s", args.distros_dir)
+    if not args.pkginfo_dir.is_dir():
+        log.error("distros directory not found: %s", args.pkginfo_dir)
         return 1
 
     builder = RepoBuilder(
-        distros_dir=args.distros_dir,
+        pkginfo_dir=args.pkginfo_dir,
         output_dir=args.output_dir,
         config_dir=args.config_dir,
         cache_dir=args.cache_dir,
