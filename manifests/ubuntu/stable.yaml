@@ -25,25 +25,5 @@ resolute:
   - name: tiscamera
     version: 1.1.1
     files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.debian13.zip
-      sha256: 0c472b9412a3e3ef817b2684ed54dc8cf6f37b7b17d63264f56c2c977ab714ca
-
-
-#
-# 24.04 (noble)
-#
-noble:
-  version: 24.04
-  packages:
-  - name: syntalos
-    version: 2.1.2
-    files:
-    - type: zip
-      url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
-      sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
-
-  - name: tiscamera
-    version: 1.1.1
-    files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.debian13.zip
-      sha256: 0c472b9412a3e3ef817b2684ed54dc8cf6f37b7b17d63264f56c2c977ab714ca
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.ubuntu26.04.zip
+      sha256: 0fa904e435f0ddf831f0d3ed5989d92d70e77e5179cba1acb6e41daa2dc234c5
