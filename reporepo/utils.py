@@ -25,7 +25,7 @@ from rich.progress import (
 
 log = logging.getLogger(__name__)
 
-_TAR_TYPES: frozenset[str] = frozenset({"tar", "tgz", "tar.gz", "tar.xz", "tar.bz2"})
+_TAR_TYPES: frozenset[str] = frozenset({".tar.gz", ".tgz", ".tar.xz", ".tar.bz2", ".tar"})
 
 
 def setup_signing_key(config_dir: Path, cache_dir: Path) -> tuple[Path, str]:
@@ -234,22 +234,36 @@ def _extract_debs_tar(archive: Path, dest_dir: Path) -> list[Path]:
     return debs
 
 
+def _infer_type_from_url(url: str) -> str:
+    """Infer the file type from the URL filename extension."""
+    name = Path(url).name.lower()
+    if name.endswith(".deb"):
+        return "deb"
+    if name.endswith(".zip"):
+        return "zip"
+    for ext in _TAR_TYPES:
+        if name.endswith(ext):
+            return "tar"
+    # Fall back to treating it as zip file (we fail early if it isn't)
+    return "zip"
+
+
 def fetch_package_debs(
     session: requests.Session,
-    pkg: dict,
+    file_entry: dict,
     work_dir: Path,
     cache_dir: Path | None,
 ) -> list[Path]:
     """
-    Download (or retrieve from cache) a package entry and return the list
+    Download (or retrieve from cache) a single file entry and return the list
     of .deb files it provides.
 
-    *pkg* must contain at least ``url``, ``sha256`` and optionally ``type``
-    (``deb`` | ``zip`` | ``tar`` / ``tgz`` / ``tar.gz`` / ...).
+    *file_entry* must contain at least ``url`` and ``sha256``.
     """
-    url: str = pkg["url"]
-    expected_sha256: str = pkg["sha256"]
-    pkg_type: str = pkg.get("type", "deb").lower()
+    url: str = file_entry["url"]
+    expected_sha256: str = file_entry["sha256"]
+    pkg_type: str = file_entry.get("type") or _infer_type_from_url(url)
+    pkg_type = pkg_type.lower()
     url_filename = Path(url).name
 
     # resolve download path (possibly from cache)
@@ -284,7 +298,7 @@ def fetch_package_debs(
             raise ValueError(f"No .deb files found inside ZIP: {url}")
         return debs
 
-    if pkg_type in _TAR_TYPES:
+    if pkg_type == "tar":
         debs = _extract_debs_tar(download_path, work_dir)
         if not debs:
             raise ValueError(f"No .deb files found inside tarball: {url}")

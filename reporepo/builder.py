@@ -154,9 +154,26 @@ class RepoBuilder:
                             label = f"{pkg.get('name', '?')} {pkg.get('version', '')}".strip()
                             log.info("  Package: %s", label)
                             try:
-                                debs = fetch_package_debs(
-                                    self._websession, pkg, work_dir, self._cache_dir
-                                )
+                                # package-level 'type' acts as a fallback for
+                                # file entries that don't carry their own type
+                                pkg_type_fallback: str | None = pkg.get("type")
+                                files = pkg.get("files", [])
+                                if not files:
+                                    raise ValueError(
+                                        f"Package {label!r} has no 'files' entries"
+                                    )
+                                debs: list[Path] = []
+                                for file_entry in files:
+                                    if pkg_type_fallback and "type" not in file_entry:
+                                        file_entry = dict(file_entry, type=pkg_type_fallback)
+                                    debs.extend(
+                                        fetch_package_debs(
+                                            self._websession,
+                                            file_entry,
+                                            work_dir,
+                                            self._cache_dir,
+                                        )
+                                    )
                                 for deb in debs:
                                     reprepro_includedeb(
                                         repo_dir,

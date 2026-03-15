@@ -10,15 +10,28 @@ resolute:
   packages:
   - name: syntalos
     version: 2.1.2
-    type: zip
-    url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
-    sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
+    files:
+    - type: zip
+      url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
+      sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
 
   - name: pomidaq
     version: 0.6.1
-    type: zip
-    url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.ubuntu26.04_amd64.zip
-    sha256: a69b1d9b58e215a4d99ed3fb3ed250947bd86f5c32a5211aa9aacc518a3ecca2
+    files:
+    - type: zip
+      url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.ubuntu26.04_amd64.zip
+      sha256: a69b1d9b58e215a4d99ed3fb3ed250947bd86f5c32a5211aa9aacc518a3ecca2
+
+  - name: tiscamera
+    version: 1.1.1
+    type: deb
+    files:
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera-dev_1.1.1.4142_amd64_ubuntu_2004.deb
+        sha256: 6083e037a453c39ec3b43f2962fcdf0dac71f9c906c7ca8f747c9da8f7f17e0b
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera_1.1.1.4142_amd64_ubuntu_2004.deb
+        sha256: ff2ff5be751bb6cac5b3f1d6bf7dbba633b4ca62a797f8e7b2a61f1d5cdc2d23
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera_1.1.1.4142_arm64_ubuntu_2004.deb
+        sha256: 4ec7e19f186b168850f9390df607d1ac300b9bd35458a42585be48e9f74cab0a
 
 
 #
@@ -29,6 +42,17 @@ noble:
   packages:
   - name: syntalos
     version: 2.1.2
-    type: zip
-    url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
-    sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
+    files:
+    - type: zip
+      url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
+      sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
+
+  - name: tiscamera
+    version: 1.1.1
+    files:
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera-dev_1.1.1.4142_amd64_ubuntu_2004.deb
+        sha256: 6083e037a453c39ec3b43f2962fcdf0dac71f9c906c7ca8f747c9da8f7f17e0b
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera_1.1.1.4142_amd64_ubuntu_2004.deb
+        sha256: ff2ff5be751bb6cac5b3f1d6bf7dbba633b4ca62a797f8e7b2a61f1d5cdc2d23
+      - url: https://github.com/TheImagingSource/tiscamera/releases/download/v-tiscamera-1.1.1/tiscamera_1.1.1.4142_arm64_ubuntu_2004.deb
+        sha256: 4ec7e19f186b168850f9390df607d1ac300b9bd35458a42585be48e9f74cab0a
