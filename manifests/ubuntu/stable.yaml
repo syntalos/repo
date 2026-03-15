@@ -2,6 +2,28 @@
 # Packages for Ubuntu in the "stable" channel.
 #
 
+#
+# 26.04 (resolute)
+#
+resolute:
+  version: 26.04
+  packages:
+  - name: syntalos
+    version: 2.1.2
+    type: zip
+    url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_ubuntu24.04.zip
+    sha256: e651c1b069f8e6a8547e1441fdff2785c35d81f9c12726248279f6fd7fe78820
+
+  - name: pomidaq
+    version: 0.6.1
+    type: zip
+    url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.ubuntu26.04_amd64.zip
+    sha256: a69b1d9b58e215a4d99ed3fb3ed250947bd86f5c32a5211aa9aacc518a3ecca2
+
+
+#
+# 24.04 (noble)
+#
 noble:
   version: 24.04
   packages:
