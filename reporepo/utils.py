@@ -62,20 +62,26 @@ def setup_signing_key(config_dir: Path, cache_dir: Path) -> tuple[Path, str]:
     env["GNUPGHOME"] = str(gpghome.absolute())
 
     def run_gpg(args: list[str], check: bool = True) -> subprocess.CompletedProcess[str]:
-        with subprocess.Popen(['gpg-agent', '--daemon'], env=env):
-            result = subprocess.run(
-                args,
-                env=env,
-                capture_output=True,
-                text=True,
-            )
-            if check and result.returncode != 0:
-                stdout = result.stdout.strip()
-                stderr = result.stderr.strip()
-                stdout = f"stdout:\n{stdout}\n\n" if stdout else ""
-                stderr = f"stderr:\n{stderr}" if stderr else ""
-                raise RuntimeError(f"Command failed: {' '.join(args)}\n" f"{stdout}{stderr}")
-            return result
+        """Run a GPG command."""
+        result = subprocess.run(
+            args,
+            env=env,
+            capture_output=True,
+            text=True,
+        )
+        if check and result.returncode != 0:
+            stdout = result.stdout.strip()
+            stderr = result.stderr.strip()
+            stdout = f"stdout:\n{stdout}\n\n" if stdout else ""
+            stderr = f"stderr:\n{stderr}" if stderr else ""
+            raise RuntimeError(f"Command failed: {' '.join(args)}\n" f"{stdout}{stderr}")
+        return result
+
+    # if gpg-agent isn't running, all secret key actions fill fail
+    subprocess.run(
+        ["gpg-agent", "--disable-scdaemon", "--batch", "--daemon"],
+        env=env,
+    )
 
     # if a secret key already exists, don't import again.
     existing = run_gpg(
