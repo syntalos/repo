@@ -99,7 +99,7 @@ def main(argv: list[str] | None = None) -> int:
         level=logging.DEBUG if args.verbose else logging.INFO,
         format="%(message)s",
         datefmt="[%H:%M:%S]",
-        handlers=[RichHandler(rich_tracebacks=True, markup=False)],
+        handlers=[RichHandler(rich_tracebacks=True, markup=False, show_path=False)],
     )
 
     if not args.pkginfo_dir.is_dir():
