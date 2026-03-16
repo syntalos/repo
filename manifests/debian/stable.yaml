@@ -2,6 +2,9 @@
 # Packages for Debian in the "stable" channel.
 #
 
+#
+# 13.x (trixie)
+#
 trixie:
   version: 13.x
   packages:
@@ -25,3 +28,11 @@ trixie:
     files:
     - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.debian13.zip
       sha256: 0c472b9412a3e3ef817b2684ed54dc8cf6f37b7b17d63264f56c2c977ab714ca
+
+
+#
+# 14.x - testing (forky)
+#
+forky:
+  version: 14.x
+  packages: []

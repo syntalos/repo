@@ -33,14 +33,21 @@ case "${ID:-}" in
                 ;;
             *)
                 echo "Unsupported Debian release: ${VERSION_CODENAME:-unknown}" >&2
-                echo "Supported Debian release: trixie" >&2
+                echo "Supported Debian releases: trixie" >&2
                 exit 1
                 ;;
         esac
         ;;
     ubuntu)
         case "${VERSION_CODENAME:-}" in
-            noble|resolute)
+            noble)
+                # on Ubuntu 24.04, we are using the older PPA instead of the new GitHub deployment
+                add-apt-repository ppa:ximion/syntalos
+                echo
+                echo "Syntalos repository installed successfully."
+                exit 0
+                ;;
+            resolute)
                 REPO_URL="${REPO_BASE_URL}/ubuntu/"
                 SUITE="${VERSION_CODENAME}"
                 ;;
@@ -55,6 +62,7 @@ case "${ID:-}" in
         echo "Unsupported distribution: ${ID:-unknown}" >&2
         echo "We only support Ubuntu and Debian right now." >&2
         echo "Compiling from source or the Flatpak package might work for you." >&2
+        echo "Check out https://syntalos.org/get/ for more information." >&2
         exit 1
         ;;
 esac
