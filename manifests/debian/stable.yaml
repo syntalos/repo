@@ -20,14 +20,16 @@ trixie:
     files:
     - url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.debian13_amd64.zip
       sha256: 3651ce25436061e556d602d51f47f841b87c0f8588ab399784ad6de7fe0094cf
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/pomidaq_0.6.1+git4.debian13_arm64.zip
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/pomidaq_0.6.1+git4.debian13_arm64.zip
       sha256: caac7b0d72bb50c3d355e69626ee72a6e64e0fffaaab82a7d8aa8c902cd83d2e
 
   - name: tiscamera
     version: 1.1.1
     files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.debian13.zip
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_amd64.debian13.zip
       sha256: 0c472b9412a3e3ef817b2684ed54dc8cf6f37b7b17d63264f56c2c977ab714ca
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_arm64.debian13.zip
+      sha256: 0686a5f23715ca22fd803b6e7176b556119860875073a1e1ec8520b7f4584ed8
 
 
 #

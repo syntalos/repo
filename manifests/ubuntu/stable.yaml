@@ -20,11 +20,13 @@ resolute:
     files:
     - url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.ubuntu26.04_amd64.zip
       sha256: a69b1d9b58e215a4d99ed3fb3ed250947bd86f5c32a5211aa9aacc518a3ecca2
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/pomidaq_0.6.1+git4.ubuntu26.04_arm64.zip
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/pomidaq_0.6.1+git4.ubuntu26.04_arm64.zip
       sha256: 7ee57f765dbf11b7c1761d3df4c8b6b8e13ea87a20e4b7d42145c1e76b1dd83e
 
   - name: tiscamera
     version: 1.1.1
     files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/new-packages/tiscamera_1.1.1.4182_amd64.ubuntu26.04.zip
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_amd64.ubuntu26.04.zip
       sha256: 0fa904e435f0ddf831f0d3ed5989d92d70e77e5179cba1acb6e41daa2dc234c5
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_arm64.ubuntu26.04.zip
+      sha256: 74d118d2d85e7a363b11775dcc8997bcd44d005d2d9a5c10d898e46aac117ae0
