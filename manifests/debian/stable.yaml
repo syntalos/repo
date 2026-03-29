@@ -23,6 +23,12 @@ trixie:
       url: https://github.com/syntalos/syntalos/releases/download/v2.1.2/syntalos_2.1.2+git1509_amd64_debian13.zip
       sha256: b2dfbb55762fbfd422c601ac69c2ab5faab6e7a7f1d7c8ccf74c2801a8deb025
 
+  - name: libblake3
+    version: 1.8.2
+    files:
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/libblake3_1.8.2-1.debian13.zip
+      sha256: b05de3d7c0da8b98d93e7f3512346fadb104c0fa000a2808d6e7e5c35e84a774
+
   - name: pomidaq
     version: 0.6.1
     files:
