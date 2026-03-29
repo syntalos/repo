@@ -51,4 +51,11 @@ trixie:
 #
 forky:
   version: 14.x
-  packages: []
+  packages:
+  - name: pomidaq
+    version: 0.6.1
+    files:
+    - url: https://github.com/bothlab/pomidaq/releases/download/v0.6.1/pomidaq_0.6.1.debian13_amd64.zip
+      sha256: 3651ce25436061e556d602d51f47f841b87c0f8588ab399784ad6de7fe0094cf
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/pomidaq_0.6.1+git4.debian13_arm64.zip
+      sha256: caac7b0d72bb50c3d355e69626ee72a6e64e0fffaaab82a7d8aa8c902cd83d2e

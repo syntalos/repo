@@ -27,13 +27,13 @@ fi
 case "${ID:-}" in
     debian)
         case "${VERSION_CODENAME:-}" in
-            trixie)
+            trixie|forky)
                 REPO_URL="${REPO_BASE_URL}/debian/"
                 SUITE="${VERSION_CODENAME}"
                 ;;
             *)
                 echo "Unsupported Debian release: ${VERSION_CODENAME:-unknown}" >&2
-                echo "Supported Debian releases: trixie" >&2
+                echo "Supported Debian releases: trixie, forky" >&2
                 exit 1
                 ;;
         esac
