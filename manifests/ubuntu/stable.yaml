@@ -32,9 +32,9 @@ resolute:
       sha256: 7ee57f765dbf11b7c1761d3df4c8b6b8e13ea87a20e4b7d42145c1e76b1dd83e
 
   - name: tiscamera
-    version: 1.1.1
+    version: 1.1.2
     files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_amd64.ubuntu26.04.zip
-      sha256: 0fa904e435f0ddf831f0d3ed5989d92d70e77e5179cba1acb6e41daa2dc234c5
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_arm64.ubuntu26.04.zip
-      sha256: 74d118d2d85e7a363b11775dcc8997bcd44d005d2d9a5c10d898e46aac117ae0
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.2.4192.ubuntu26.04_amd64.zip
+      sha256: 5e616ef45a53c7682848223556bb52228b0787d8b9a338cf7fda5673b8588cef
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.2.4192.ubuntu26.04_arm64.zip
+      sha256: 0f2e302cfeab007072185ead67a25524b2006fa17f4b6ed04889e37f65d0d225

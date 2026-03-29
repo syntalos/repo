@@ -38,12 +38,12 @@ trixie:
       sha256: caac7b0d72bb50c3d355e69626ee72a6e64e0fffaaab82a7d8aa8c902cd83d2e
 
   - name: tiscamera
-    version: 1.1.1
+    version: 1.1.2
     files:
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4142_amd64.debian13.zip
-      sha256: 587e066521b94ca6f5d9f50018911a6563ae4a4df316e9c79802c25f606f0b35
-    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.1.4182_arm64.debian13.zip
-      sha256: 0686a5f23715ca22fd803b6e7176b556119860875073a1e1ec8520b7f4584ed8
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.2.4192.debian13_amd64.zip
+      sha256: 762467449ea3c536ec0a605d1768ad881b280270251a49224ee53afcc48ed7a9
+    - url: https://raw.githubusercontent.com/syntalos/repo/refs/heads/extra-packages/tiscamera_1.1.2.4192.debian13_arm64.zip
+      sha256: c9a8c048efd0993ac47d6aaec87774193461a45547587daf550d946be821dc05
 
 
 #
