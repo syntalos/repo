@@ -3,8 +3,6 @@
 Native APT repository for [Syntalos](https://github.com/syntalos/syntalos)
 and related packages, served via GitHub Pages.
 
-**Repository URL:** `https://syntalos.github.io/repo`
-
 
 ---
 
@@ -34,25 +32,7 @@ You can then run `sudo apt install syntalos` to install Syntalos.
 
 ---
 
-## Maintaining the repository
-
-### Repository layout
-
-```
-manifests/          Package definitions (one YAML per distro/channel)
-  debian/
-    stable.yaml
-  ubuntu/
-    stable.yaml
-config/             Build configuration
-publish/            Files published alongside the repo
-  syntalos-repo.asc Public GPG key (committed)
-  setup-syntalos-repo.sh  End-user setup script
-_target/            Generated APT repository (git-ignored)
-_cache/             Download and reprepro cache (git-ignored)
-```
-
-### Building locally
+## Building locally
 
 ```bash
 # Install dependencies
